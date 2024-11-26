@@ -1,0 +1,44 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+    <!-- Header -->
+    <rect x="0" y="0" width="800" height="60" fill="#f3f4f6" />
+    <text x="20" y="35" fill="#111827" font-size="20">Apartment Leases</text>
+    <rect x="600" y="15" width="180" height="30" rx="4" fill="#3b82f6" />
+    <text x="645" y="35" fill="white" font-size="14">+ New Lease</text>
+
+    <!-- Search Bar -->
+    <rect x="20" y="80" width="760" height="40" rx="4" fill="white" stroke="#e5e7eb" />
+    <text x="40" y="105" fill="#9ca3af" font-size="14">Search leases...</text>
+
+    <!-- Table Header -->
+    <rect x="20" y="140" width="760" height="40" fill="#f9fafb" />
+    <text x="40" y="165" fill="#374151" font-size="14">Address</text>
+    <text x="300" y="165" fill="#374151" font-size="14">Tenant</text>
+    <text x="500" y="165" fill="#374151" font-size="14">Rent</text>
+    <text x="650" y="165" fill="#374151" font-size="14">Status</text>
+
+    <!-- Table Rows (Draggable) -->
+    <rect x="20" y="180" width="760" height="60" fill="white" stroke="#e5e7eb" />
+    <circle cx="40" cy="210" r="8" fill="#9ca3af" /> <!-- Drag Handle -->
+    <text x="60" y="215" fill="#111827" font-size="14">123 Main St, Apt 4B</text>
+    <text x="300" y="215" fill="#111827" font-size="14">John Doe</text>
+    <text x="500" y="215" fill="#111827" font-size="14">$2,500</text>
+    <rect x="650" y="200" width="80" height="25" rx="12" fill="#34d399" />
+    <text x="670" y="217" fill="white" font-size="12">Active</text>
+
+    <!-- More Rows (Ghosted) -->
+    <rect x="20" y="250" width="760" height="60" fill="white" stroke="#e5e7eb" opacity="0.7" />
+    <rect x="20" y="320" width="760" height="60" fill="white" stroke="#e5e7eb" opacity="0.5" />
+    <rect x="20" y="390" width="760" height="60" fill="white" stroke="#e5e7eb" opacity="0.3" />
+
+    <!-- Pagination -->
+    <rect x="20" y="520" width="760" height="40" fill="#f9fafb" />
+    <text x="40" y="545" fill="#374151" font-size="14">Showing 1-25 of 100,000</text>
+    <rect x="600" y="525" width="30" height="30" rx="4" fill="#e5e7eb" />
+    <text x="610" y="545" fill="#374151" font-size="14">&lt;</text>
+    <rect x="640" y="525" width="30" height="30" rx="4" fill="#3b82f6" />
+    <text x="650" y="545" fill="white" font-size="14">1</text>
+    <rect x="680" y="525" width="30" height="30" rx="4" fill="#e5e7eb" />
+    <text x="690" y="545" fill="#374151" font-size="14">2</text>
+    <rect x="720" y="525" width="30" height="30" rx="4" fill="#e5e7eb" />
+    <text x="730" y="545" fill="#374151" font-size="14">&gt;</text>
+</svg>

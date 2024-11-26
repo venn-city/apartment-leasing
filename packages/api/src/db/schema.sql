@@ -19,12 +19,3 @@ CREATE TABLE
         WITH
             TIME ZONE DEFAULT CURRENT_TIMESTAMP
     );
-
--- Create index for search
-CREATE INDEX idx_leases_search ON leases (
-    tenant_name text_pattern_ops,
-    address text_pattern_ops
-);
-
--- Create index for ordering
-CREATE INDEX idx_leases_display_order ON leases (display_order);

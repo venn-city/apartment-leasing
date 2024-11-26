@@ -1,0 +1,45 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+    <!-- Header -->
+    <rect x="0" y="0" width="800" height="60" fill="#f3f4f6" />
+    <text x="20" y="35" fill="#111827" font-size="20">New Lease</text>
+
+    <!-- Progress Steps -->
+    <line x1="100" y1="100" x2="700" y2="100" stroke="#e5e7eb" stroke-width="2" />
+
+    <!-- Step 1 -->
+    <circle cx="100" cy="100" r="20" fill="#3b82f6" />
+    <text x="95" y="105" fill="white" font-size="14">1</text>
+    <text x="70" y="135" fill="#3b82f6" font-size="12">Property</text>
+
+    <!-- Step 2 -->
+    <circle cx="350" cy="100" r="20" fill="#e5e7eb" />
+    <text x="345" y="105" fill="#374151" font-size="14">2</text>
+    <text x="320" y="135" fill="#374151" font-size="12">Tenant</text>
+
+    <!-- Step 3 -->
+    <circle cx="600" cy="100" r="20" fill="#e5e7eb" />
+    <text x="595" y="105" fill="#374151" font-size="14">3</text>
+    <text x="570" y="135" fill="#374151" font-size="12">Terms</text>
+
+    <!-- Form Container -->
+    <rect x="100" y="180" width="600" height="320" fill="white" stroke="#e5e7eb" />
+
+    <!-- Form Fields (Property Step) -->
+    <text x="120" y="220" fill="#111827" font-size="16">Property Details</text>
+
+    <text x="120" y="260" fill="#374151" font-size="14">Address</text>
+    <rect x="120" y="270" width="560" height="40" fill="white" stroke="#e5e7eb" rx="4" />
+
+    <text x="120" y="340" fill="#374151" font-size="14">Property Type</text>
+    <rect x="120" y="350" width="270" height="40" fill="white" stroke="#e5e7eb" rx="4" />
+
+    <text x="410" y="340" fill="#374151" font-size="14">Monthly Rent</text>
+    <rect x="410" y="350" width="270" height="40" fill="white" stroke="#e5e7eb" rx="4" />
+
+    <!-- Navigation Buttons -->
+    <rect x="120" y="440" width="100" height="40" rx="4" fill="#e5e7eb" />
+    <text x="150" y="465" fill="#374151" font-size="14">Back</text>
+
+    <rect x="580" y="440" width="100" height="40" rx="4" fill="#3b82f6" />
+    <text x="610" y="465" fill="white" font-size="14">Next</text>
+</svg>
