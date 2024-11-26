@@ -1,0 +1,199 @@
+type Query {
+  """
+  Get a paginated list of leases
+  """
+  leases(
+    """
+    Page number, starting from 1
+    """
+    page: Int = 1
+
+    """
+    Number of items per page
+    """
+    pageSize: Int = 10
+
+    """
+    Optional search term for address or tenant name
+    """
+    search: String
+  ): LeaseConnection!
+}
+
+type Mutation {
+  """
+  Create a new lease
+  """
+  createLease(input: CreateLeaseInput!): Lease!
+
+  """
+  Update lease display order
+  """
+  updateLeaseOrder(
+    """
+    The lease ID to update
+    """
+    id: ID!
+
+    """
+    New display order position
+    """
+    newOrder: Int!
+  ): Boolean!
+}
+
+type LeaseConnection {
+  """
+  List of lease edges
+  """
+  edges: [LeaseEdge!]!
+
+  """
+  Pagination information
+  """
+  pageInfo: PageInfo!
+
+  """
+  Total count of leases
+  """
+  totalCount: Int!
+}
+
+type LeaseEdge {
+  """
+  The lease node
+  """
+  node: Lease!
+
+  """
+  Cursor for pagination
+  """
+  cursor: String!
+}
+
+type PageInfo {
+  """
+  Whether there are more items
+  """
+  hasNextPage: Boolean!
+
+  """
+  Last cursor in the current page
+  """
+  endCursor: String
+}
+
+type Lease {
+  """
+  Unique identifier
+  """
+  id: ID!
+
+  """
+  Property address
+  """
+  address: String!
+
+  """
+  Property type
+  """
+  propertyType: PropertyType!
+
+  """
+  Monthly rent amount
+  """
+  monthlyRent: Float!
+
+  """
+  Tenant's full name
+  """
+  tenantName: String!
+
+  """
+  Tenant's email
+  """
+  tenantEmail: String!
+
+  """
+  Tenant's phone number
+  """
+  tenantPhone: String!
+
+  """
+  Start date of the lease
+  """
+  startDate: String!
+
+  """
+  End date of the lease
+  """
+  endDate: String!
+
+  """
+  Security deposit amount
+  """
+  securityDeposit: Float!
+
+  """
+  Display order for sorting
+  """
+  displayOrder: Int!
+
+  """
+  When the lease was created
+  """
+  createdAt: String!
+}
+
+enum PropertyType {
+  APARTMENT
+  HOUSE
+  CONDO
+}
+
+input CreateLeaseInput {
+  """
+  Property address
+  """
+  address: String!
+
+  """
+  Type of property
+  """
+  propertyType: PropertyType!
+
+  """
+  Monthly rent amount
+  """
+  monthlyRent: Float!
+
+  """
+  Tenant's full name
+  """
+  tenantName: String!
+
+  """
+  Tenant's email
+  """
+  tenantEmail: String!
+
+  """
+  Tenant's phone number
+  """
+  tenantPhone: String!
+
+  """
+  Start date of the lease
+  """
+  startDate: String!
+
+  """
+  End date of the lease
+  """
+  endDate: String!
+
+  """
+  Security deposit amount
+  """
+  securityDeposit: Float!
+}

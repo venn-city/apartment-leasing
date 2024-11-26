@@ -1,0 +1,50 @@
+FROM node:18-alpine AS base
+
+# Install dependencies required for node-gyp
+RUN apk add --no-cache python3 make g++ libc6-compat
+
+# Set working directory
+WORKDIR /app
+
+# Install pnpm
+RUN corepack enable && corepack prepare pnpm@8.9.0 --activate
+
+# Create necessary directories
+RUN mkdir -p packages/web/app/styles packages/web/app/lib/generated packages/web/scripts
+
+# Copy package files
+COPY package.json pnpm-workspace.yaml ./
+COPY packages/web/package.json ./packages/web/
+COPY packages/api/src/schema.graphql ./packages/api/src/
+
+# Install dependencies
+RUN pnpm install --no-frozen-lockfile
+
+# Copy configuration files
+COPY .eslintrc .prettierrc ./
+COPY packages/web/.eslintrc ./packages/web/
+COPY packages/web/tsconfig.json ./packages/web/
+COPY packages/web/vite.config.ts ./packages/web/
+COPY packages/web/remix.config.js ./packages/web/
+
+# Copy scripts
+COPY packages/web/scripts ./packages/web/scripts
+
+# Generate GraphQL types
+RUN pnpm --filter web generate:gql
+
+# Copy application files
+COPY packages/web/app/entry.client.tsx ./packages/web/app/
+COPY packages/web/app/entry.server.tsx ./packages/web/app/
+COPY packages/web/app/root.tsx ./packages/web/app/
+COPY packages/web/app/routes ./packages/web/app/routes
+COPY packages/web/app/styles/globals.css ./packages/web/app/styles/
+COPY packages/web/app/lib/graphql.ts ./packages/web/app/lib/
+
+# Set environment to development
+ENV NODE_ENV=development
+ENV PORT=3000
+ENV GRAPHQL_URL=http://api:4000/graphql
+
+# Run web in development mode
+CMD ["pnpm", "--filter", "web", "dev"]

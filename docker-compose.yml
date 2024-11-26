@@ -1,0 +1,56 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: apartment_leasing
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api
+    ports:
+      - "4000:4000"
+    environment:
+      NODE_ENV: development
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/apartment_leasing
+      PORT: 4000
+      CORS_ORIGIN: http://localhost:3000
+    volumes:
+      - ./packages/api:/app/packages/api
+      - /app/packages/api/node_modules
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  web:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.web
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+      GRAPHQL_URL: http://api:4000/graphql
+      PORT: 3000
+    volumes:
+      - ./packages/web:/app/packages/web
+      - /app/packages/web/node_modules
+    depends_on:
+      - api
+
+volumes:
+  postgres_data:
+  node_modules:

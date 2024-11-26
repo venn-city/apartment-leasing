@@ -1,0 +1,27 @@
+{
+  "name": "apartment-leasing",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@8.9.0",
+  "scripts": {
+    "dev": "pnpm --filter \"./packages/**\" run dev",
+    "build": "pnpm --filter \"./packages/**\" run build",
+    "test": "pnpm --filter \"./packages/**\" run test",
+    "lint": "pnpm --filter \"./packages/**\" run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "db:seed": "tsx scripts/seed.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.1.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

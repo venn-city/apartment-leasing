@@ -1,0 +1,39 @@
+FROM node:18-alpine AS base
+
+# Install dependencies required for node-gyp
+RUN apk add --no-cache python3 make g++ libc6-compat
+
+# Set working directory
+WORKDIR /app
+
+# Install pnpm
+RUN corepack enable && corepack prepare pnpm@8.9.0 --activate
+
+# Create necessary directories
+RUN mkdir -p packages/api/src/db packages/api/src/resolvers
+
+# Copy package files
+COPY package.json pnpm-workspace.yaml ./
+COPY packages/api/package.json ./packages/api/
+
+# Install dependencies
+RUN pnpm install --no-frozen-lockfile
+
+# Copy configuration files
+COPY .eslintrc .prettierrc ./
+COPY packages/api/.eslintrc ./packages/api/
+COPY packages/api/tsconfig.json ./packages/api/
+
+# Copy source files
+COPY packages/api/src/db/schema.sql ./packages/api/src/db/
+COPY packages/api/src/db/index.ts ./packages/api/src/db/
+COPY packages/api/src/resolvers/index.ts ./packages/api/src/resolvers/
+COPY packages/api/src/schema.graphql ./packages/api/src/
+COPY packages/api/src/index.ts ./packages/api/src/
+
+# Set environment to development
+ENV NODE_ENV=development
+ENV PORT=4000
+
+# Run api in development mode
+CMD ["pnpm", "--filter", "api", "dev"]
