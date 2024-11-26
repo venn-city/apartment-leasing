@@ -9,8 +9,8 @@ Create a leasing management system with two main features:
 1. **Lease Listing Page**
 
    - Paginated list view (25 items per page)
-   - Drag and drop reordering
    - Search functionality
+   - Drag and drop reordering (**Bonus**)
 
 2. **New Lease Form**
    Multi-step form with the following steps:
@@ -79,21 +79,23 @@ The application will be available at:
 2. **GraphQL API**
    - Implement the lease query with pagination and search
    - Implement the create lease mutation
-   - Implement the update lease order mutation
+   - Implement the update lease order mutation (**Bonus**)
 
 ### Frontend Requirements
 
+![Main Page](https://raw.githubusercontent.com/venn-city/apartment-leasing/refs/heads/main/wireframe/list.svg)
+
 1. **Lease List Page (`/leases`)**
-
-   - Implement paginated list with 25 items per page
-   - Add drag and drop reordering functionality
+   - Implement paginated list with 25 items per page (Display Active/Inactive status based on the lease dates)
    - Implement search by address or tenant name
+   - Add drag and drop reordering functionality (**Bonus**)
 
-2. **New Lease Form (`/leases/new`)**
-   - Create a multi-step form
-   - Implement form state persistence between steps
-   - Add validation for all required fields
-   - Show progress indicator
+![New](https://raw.githubusercontent.com/venn-city/apartment-leasing/refs/heads/main/wireframe/new.svg) 2. **New Lease Form (`/leases/new`)**
+
+- Create a multi-step form
+- Implement form state persistence between steps
+- Add validation for all required fields
+- Show progress indicator
 
 ## 📁 Project Structure
 
