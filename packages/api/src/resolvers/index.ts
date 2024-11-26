@@ -7,7 +7,7 @@ export const resolvers = {
       // TODO: Implement lease pagination query
       // Requirements:
       // 1. Use the page and pageSize arguments for pagination
-      // 2. Implement cursor-based pagination using display_order and id
+      // 2. Implement cursor-based pagination using id (or display_order - Bonus)
       // 3. Add search functionality for address and tenant_name
       // 4. Return total count
       // 5. Properly format the connection type response
@@ -29,12 +29,12 @@ export const resolvers = {
       // TODO: Implement lease creation
       // Requirements:
       // 1. Validate input data
-      // 2. Calculate next display_order value
+      // 2. Calculate next display_order value (Bonus)
       // 3. Insert new lease
       // 4. Return created lease
       throw new Error('Not implemented');
     },
-
+    //bonus
     updateLeaseOrder: async (_: any, { id, newOrder }: { id: string; newOrder: number }) => {
       // TODO: Implement order updating (how can this be optimized?)
       // Requirements:

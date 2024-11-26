@@ -37,13 +37,6 @@ Create a leasing management system with two main features:
 
 ### Installation & Setup
 
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/venn-city/apartment-leasing
-   cd apartment-leasing
-   ```
-
 2. **Install dependencies**
 
    ```bash
@@ -143,6 +136,7 @@ The seed script will populate the database with 100,000 sample lease records. Th
 
 ## ✨ Bonus Points
 
+- Drag & Drop with persistent ordering
 - Adding comprehensive test coverage
 - Implementing advanced search filters
 - Adding performance optimizations
@@ -175,14 +169,21 @@ The seed script will populate the database with 100,000 sample lease records. Th
 
 ## 📝 Submission Guidelines
 
-1. Fork this repository
-2. Complete the implementation
-3. Submit a pull request
+1. Click the green "Use this template" button at the top right
+2. Choose "Create a new repository"
+3. Set the following options:
+   - Owner: Your GitHub account
+   - Repository name: apartment-leasing-YOUR_NAME
+   - Set visibility to "Private"
+   - Click "Create repository from template"
 4. Include:
    - Setup instructions
    - Any additional features implemented
    - Architectural decisions made
    - Performance considerations
+5. Once you've completed the assessment, add the following GitHub accounts as collaborators to your private repository:
+   - @Yoni-venn
+   - @SegevHaviv
 
 ## 🔒 License
 
